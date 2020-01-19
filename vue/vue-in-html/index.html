@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+
+    <div id="test">
+      <title-component :tit="title"></title-component>
+      <input-component></input-component>
+    </div>
+
+    <script>
+      let data = { title: "Witam", newTitle: "" };
+      let TitleComponent = Vue.extend({
+        template: `<div id="title" >{{tit}}</div>`,
+        props: ["tit"]
+      });
+
+      let InputComponent = Vue.extend({
+        data: function() {
+          return data;
+        },
+        template: `<input id="myinput" v-model="newTitle" @keyup.enter="changeTitle" />`,
+        methods: {
+          changeTitle: function(e) {
+            this.title = this.newTitle;
+          }
+        }
+      });
+
+      Vue.component("title-component", TitleComponent);
+      Vue.component("input-component", InputComponent);
+
+      new Vue({
+        el: "#test",
+        data: data
+      });
+    </script>
+  </body>
+</html>

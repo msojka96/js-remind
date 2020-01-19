@@ -1,0 +1,19 @@
+body {
+  background-color: rgb(190, 190, 190);
+}
+
+#myinput {
+  width: 100%;
+}
+
+#title{
+    width:100%;
+    font-size:16px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(25, 107, 25);
+    color:white;
+    height:50px;
+    margin-bottom:10px;
+}
